@@ -8,9 +8,9 @@ npm install matrmath
 ```
 
 ## Usage
-Utilize the [functions](https://github.com/tannerdolby/matrmath#config) in this library for performing matrix operations:
+Utilize the [functions](https://github.com/tannerdolby/matrmath#config) in this library for performing matrix operations.
 
-For example, compute the diagonal difference of a square (n x n) matrix.
+For example, compute the diagonal difference of a square (n x n) matrix:
 
 ```js
 const mtr = require("matrmath");
