@@ -162,7 +162,6 @@ function rowReduce(M, square = false) {
 
 function det(M) {
     isObject(M);
-    let det = 0;
 
     if (!isSquare(M)) {
         throw new Error("Matrix must be square!");
@@ -179,8 +178,7 @@ function det(M) {
             ), 0
         );
     }
-    det = d(M);
-    return det;
+    return d(M);
 }
 
 function isIndependent(M) {
