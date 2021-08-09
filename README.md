@@ -2,14 +2,13 @@
 A library for performing matrix operations.
 
 ## Installation
-Install the package from [npm]()
 
 ```js
 npm install matrmath
 ```
 
 ## Usage
-Utilize the [functions]() in this library for performing matrix operations:
+Utilize the [functions](https://github.com/tannerdolby/matrmath#config) in this library for performing matrix operations:
 
 For example, compute the diagonal difference of a square (n x n) matrix.
 
@@ -64,7 +63,7 @@ Check whether a 2D or 1D matrix is square. That is the number of rows equals the
 - `is2D` - `boolean` - Optional boolean parameter to specify if the matrix is 1D instead of 2D.
 
 ### det(M)
-Calculate the [determinant](https://en.wikipedia.org/wiki/Determinant) of a matrix using [Laplace expansion](https://en.wikipedia.org/wiki/Laplace_expansion).
+Calculate the [determinant](https://en.wikipedia.org/wiki/Determinant) of a matrix.
 
 - `M` - `number[][]` - A 2-dimensional array.
 
@@ -80,9 +79,9 @@ Calculate whether a square matrix is linearly dependent. Meaning its determinant
 - `M` - `number[][]` - A 2-dimensional array.
 
 ## Tests
-Run the Jest tests with:
-
-```npm run test`
+```js
+npm run test
+```
 
 
 ## Todo
@@ -90,6 +89,6 @@ Run the Jest tests with:
 
 
 ## Resources
-- [Reduced Row Echelon Form - JavaScript](https://rosettacode.org/wiki/Reduced_row_echelon_form#JavaScript) code example by rosettacode.
-- [Determinant - JavaScript](https://rosettacode.org/wiki/Determinant_and_permanent#JavaScript)
+- [Reduced Row Echelon Form (JavaScript)](https://rosettacode.org/wiki/Reduced_row_echelon_form#JavaScript) - code example by rosettacode.
+- [Determinant - JavaScript](https://rosettacode.org/wiki/Determinant_and_permanent#JavaScript) - code example by rosettacode.
 - [substrack/rref](https://github.com/substack/rref) - library for row reducing based on rosettacode example.
