@@ -69,7 +69,7 @@ Calculate the [determinant](https://en.wikipedia.org/wiki/Determinant) of a matr
 
 
 ### isIndependent(M)
-Calculate whether a square matrix is linearly independent. If the determinant of a matrix is not equal to 0, its linearly independent.
+Calculate whether a square matrix is [linearly independent](https://en.wikipedia.org/wiki/Linear_independence#:~:text=In%20the%20theory%20of%20vector,to%20the%20definition%20of%20dimension.). If the determinant of a matrix is not equal to 0, its linearly independent.
 
 - `M` - `number[][]` - A 2-dimensional array.
 
