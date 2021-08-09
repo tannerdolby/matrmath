@@ -159,7 +159,7 @@ function rowReduce(M, square = false) {
     return M;
 }
 
-function determinant(M) {
+function det(M) {
     if (!isSquare(M)) {
         throw new Error("Matrix must be square!");
     }
@@ -185,11 +185,11 @@ function determinant(M) {
 }
 
 function isIndependent(M) {
-    return determinant(M) !== 0 ? true : false;
+    return det(M) !== 0 ? true : false;
 }
 
 function isDependent(M) {
-    return determinant(M) === 0 ? true : false;
+    return det(M) === 0 ? true : false;
 }
 
 module.exports = {
@@ -197,7 +197,7 @@ module.exports = {
     diagonalDiff,
     rowReduce,
     isSquare,
-    determinant,
+    det,
     isIndependent,
     isDependent
 };
