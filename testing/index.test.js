@@ -232,5 +232,3 @@ test("Determine whether a 2x2 matrix is linearly dependent", () => {
     expect(mtr.isDependent(M)).toBeTruthy();
     expect(mtr.isDependent(A)).toBeTruthy();
 });
-
-
