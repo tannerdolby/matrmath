@@ -177,7 +177,7 @@ test("Calculate the determinant for a 2x2 matrix", () => {
         [3, 6]
     ];
     expect(M.length).toBeGreaterThan(0);
-    expect(mtr.determinant(M)).toEqual(-3);
+    expect(mtr.det(M)).toEqual(-3);
 });
 
 test("Calculate the determinant for a 3x3 matrix", () => {
@@ -187,7 +187,7 @@ test("Calculate the determinant for a 3x3 matrix", () => {
         [7, 5, 2]
     ];
     expect(M.length).toBeGreaterThan(0);
-    expect(mtr.determinant(M)).toEqual(3);
+    expect(mtr.det(M)).toEqual(3);
 });
 
 test("Calculate the determinant for a 4x4 matrix", () => {
@@ -198,7 +198,7 @@ test("Calculate the determinant for a 4x4 matrix", () => {
         [7, 8, 9, 3]
     ];
     expect(M.length).toBeGreaterThan(0);
-    expect(mtr.determinant(M)).toEqual(12);
+    expect(mtr.det(M)).toEqual(12);
 });
 
 /* isIndependent(M) checks todo */
