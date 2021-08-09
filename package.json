@@ -1,7 +1,7 @@
 {
   "name": "matrmath",
   "version": "0.1.0",
-  "description": "A library for performing common matrix manipulations.",
+  "description": "A library for performing common matrix operations.",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
