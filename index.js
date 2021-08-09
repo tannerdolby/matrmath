@@ -1,20 +1,23 @@
 /* Referenced from: https://stackoverflow.com/questions/4492385/convert-simple-array-into-two-dimensional-array-matrix */
-function listToMatrix(M, step) {
+function listToMatrix(A, step) {
+    isObject(A);
+    if (typeof A[0] === 'object') {
+        throw new Error("The input array must be a 1-dimenisonal array!");
+    }
+
     let matrix = [];
-    for (var i = 0, k = -1; i < M.length; i++) {
+    for (var i = 0, k = -1; i < A.length; i++) {
         if (i % step === 0) {
             k++;
             matrix[k] = [];
         }
-        matrix[k].push(M[i]);
+        matrix[k].push(A[i]);
     }
     return matrix;
 }
 
 function isSquare(M, is2D = true) {
-    if (typeof M !== 'object') {
-        throw new Error(`The input matrix 'M' must be an array type ie [object Array]. Its currently '${typeof M}'`);
-    }
+    isObject(M);
     let cells = M.length;
     let cols = cells;
     let square = true;
@@ -36,20 +39,21 @@ function isSquare(M, is2D = true) {
 }
 
 function diagonalDiff(M, is2D = true, debug = false) {
-    const length = M.length;
-    const square1D = Math.sqrt(length);
+    isObject(M);
+    let rows = M.length;
+    let square1D = Math.sqrt(rows);
     let square = false;
 
     if (is2D) {
         square = isSquare(M);
-        if (!square) throw new Error("The 2D matrix must be square!");
+        if (!square) throw new Error("The input array must be a square 2D matrix");
     } else {
         square = isSquare(M, false);
-        if (!square) throw new Error("The 1D matrix must be square!");
+        if (!square) throw new Error("The input array must be a square 1D matrix");
     }
 
     const lib = {
-        matrix_type: is2D ? `${length}x${length}` : `${square1D}x${square1D}`,
+        matrix_type: is2D ? `${rows}x${rows}` : `${square1D}x${square1D}`,
         left: {
             list: [],
             sum: 0
@@ -65,13 +69,14 @@ function diagonalDiff(M, is2D = true, debug = false) {
         if (typeof M[0] === 'object') {
             throw new Error("Input array must be 1-dimensional");
         }
-        is2D = false;
-        let newMatrix = listToMatrix(M, Math.sqrt());
-        var len = newMatrix.length;
 
-        for (var i = 0, j = 0, k = len - 1; i < len, j < len, k >= 0; i++, j++, k--) {
-            lib.left.list.push(newMatrix[i][j]);
-            lib.right.list.push(newMatrix[i][k]);
+        M = listToMatrix(M, square1D);
+        rows = M.length;
+        // let len = newMatrix.length;
+
+        for (var i = 0, j = 0, k = rows - 1; i < rows, j < rows, k >= 0; i++, j++, k--) {
+            lib.left.list.push(M[i][j]);
+            lib.right.list.push(M[i][k]);
         }
         
         lib.left.sum = lib.left.list.reduce((a, b) => a + b);
@@ -99,6 +104,7 @@ function diagonalDiff(M, is2D = true, debug = false) {
 
 /* Referenced from: https://rosettacode.org/wiki/Reduced_row_echelon_form#JavaScript */
 function rowReduce(M, square = false) {
+    isObject(M);
     if (M[0].length == undefined) {
         throw new Error(`The parameter 'M' must be a 2D matrix! M[0] is currently ${M[0]}`);
     }
@@ -158,9 +164,7 @@ function rowReduce(M, square = false) {
 }
 
 function det(M) {
-    if (typeof m !== 'object') {
-        throw new Error("Input must be a 2D array of [object Array] type!");
-    }
+    isObject(M);
     let det = 0;
 
     if (!isSquare(M)) {
@@ -183,11 +187,21 @@ function det(M) {
 }
 
 function isIndependent(M) {
+    isObject(M);
     return det(M) !== 0 ? true : false;
 }
 
 function isDependent(M) {
+    isObject(M);
     return det(M) === 0 ? true : false;
+}
+
+function isObject(M) {
+    const type = typeof M;
+    if (type !== 'object') {
+        throw new Error(`The input matrix 'M' must be an array type ie [object Array]. Its currently '${type}'`);
+    }
+    return;
 }
 
 module.exports = {
