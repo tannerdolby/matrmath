@@ -15,7 +15,7 @@ For example, compute the diagonal difference of a square (n x n) matrix.
 ```js
 const mtr = require("matrmath");
 
-let diff = mtr.diagDiff([
+let diff = mtr.diagonalDiff([
     [2, 5, 3],
     [4, 6, 1],
     [7, 8, 9]
@@ -49,7 +49,7 @@ Transform a matrix in-place and return the reduced row-echelon form of a matrix.
 - `M` - `number[][]` - A 2-dimensional array.
 - `square` - `boolean` - Optional boolean parameter to specify if the matrix is square (ie 3x3, 4x4 etc).
 
-### diagDiff(M)
+### diagonalDiff(M)
 Return the diagonal difference of a [square](https://en.wikipedia.org/wiki/Square_matrix). The diagonal difference is the absolute value of the left diagonal minus the right diagonal in a square matrix.
 
 - `M` - `number[][] | number[]` - A 2-dimensional array, or optionally 1D array.
