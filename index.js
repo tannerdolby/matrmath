@@ -30,7 +30,7 @@ function isSquare(M, is2D = true) {
     } else {
         M = listToMatrix(M, Math.sqrt(cells));
         cells = M.length;
-        for (var j = 0; j < M.length; j++) {
+        for (var j = 0; j < cells; j++) {
             cols = M[j].length;
             if (cells !== cols) square = false;
         }
@@ -72,13 +72,10 @@ function diagonalDiff(M, is2D = true, debug = false) {
 
         M = listToMatrix(M, square1D);
         rows = M.length;
-        // let len = newMatrix.length;
-
         for (var i = 0, j = 0, k = rows - 1; i < rows, j < rows, k >= 0; i++, j++, k--) {
             lib.left.list.push(M[i][j]);
             lib.right.list.push(M[i][k]);
         }
-        
         lib.left.sum = lib.left.list.reduce((a, b) => a + b);
         lib.right.sum = lib.right.list.reduce((a, b) => a + b);
         lib.diagonal_diff = Math.abs(lib.left.sum - lib.right.sum);
@@ -88,8 +85,8 @@ function diagonalDiff(M, is2D = true, debug = false) {
             throw new Error("Invalid matrix argument. Please provide an array data type.");
         }
         for (
-            var i = 0, j = 0, k = length - 1;
-            i < length, j < length, k >= 0;
+            var i = 0, j = 0, k = rows - 1;
+            i < rows, j < rows, k >= 0;
             i++, j++, k--
         ) {
             lib.left.list.push(M[i][j]);
