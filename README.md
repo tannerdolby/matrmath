@@ -46,7 +46,7 @@ console.log(reduced);
 
 Transform a matrix in-place and return the reduced row-echelon form of a matrix. Row replacement is achieved through [Gaussian Elimination](https://en.wikipedia.org/wiki/Gaussian_elimination#:~:text=In%20mathematics%2C%20Gaussian%20elimination%2C%20also,the%20corresponding%20matrix%20of%20coefficients.).
 
-- `M` - `number[] | string[]` - A 2-dimensional array.
+- `M` - `number[][]` - A 2-dimensional array.
 - `square` - `boolean` - Optional boolean parameter to specify if the matrix is square (ie 3x3, 4x4 etc).
 
 ### diagDiff(M)
