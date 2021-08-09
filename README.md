@@ -85,7 +85,7 @@ npm run test
 
 
 ## Todo
-- [ ] - Add a utility for transforming points in R^n to R^n. In other words, transform a set of points in some space (R2) to points in (R3). Have a initial input matrix and a transformation matrix as parameters to output the points after being multiplied by the transformation matrix.
+- [ ] Add a utility for transforming points in R^n to R^n. In other words, transform a set of points in some space (R2) to points in (R3). Have a initial input matrix and a transformation matrix as parameters to output the points after being multiplied by the transformation matrix.
 
 
 ## Resources
