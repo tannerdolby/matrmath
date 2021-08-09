@@ -17,13 +17,13 @@ For example, compute the diagonal difference of a square (n x n) matrix.
 const mtr = require("matrmath");
 
 let diff = mtr.diagDiff([
-    [1, 6, 3],
-    [8, 2, 4],
-    [7, 5, 9]
+    [2, 5, 3],
+    [4, 6, 1],
+    [7, 8, 9]
 ]);
 
-console.log(diff); // 1
-// |(1 + 2 + 9) - (3 + 2 + 7)| = |-1| = 1
+console.log(diff);
+// |(2+6+9) - (3+6+7)| = |17-16| = 1
 ```
 
 Or compute a matrix in reduced row echelon form:
@@ -51,7 +51,7 @@ Transform a matrix in-place and return the reduced row-echelon form of a matrix.
 - `square` - `boolean` - Optional boolean parameter to specify if the matrix is square (ie 3x3, 4x4 etc).
 
 ### diagDiff(M)
-Return the diagonal difference of a [square matrix](https://en.wikipedia.org/wiki/Square_matrix).
+Return the diagonal difference of a [square](https://en.wikipedia.org/wiki/Square_matrix). The diagonal difference is the absolute value of the left diagonal minus the right diagonal in a square matrix.
 
 - `M` - `number[][] | number[]` - A 2-dimensional array, or optionally 1D array.
 - `is2D` - `boolean` - Optional boolean parameter to specify if the matrix is 1D instead of 2D.
@@ -63,7 +63,7 @@ Check whether a 2D or 1D matrix is square. That is the number of rows equals the
 - `M` - `number[][] | number[]` - A 2D or 1D array, or optionally 1D array.
 - `is2D` - `boolean` - Optional boolean parameter to specify if the matrix is 1D instead of 2D.
 
-### determinant(M)
+### det(M)
 Calculate the [determinant](https://en.wikipedia.org/wiki/Determinant) of a matrix using [Laplace expansion](https://en.wikipedia.org/wiki/Laplace_expansion).
 
 - `M` - `number[][]` - A 2-dimensional array.
@@ -78,6 +78,11 @@ Calculate whether a square matrix is linearly independent. If the determinant of
 Calculate whether a square matrix is linearly dependent. Meaning its determinant equals 0.
 
 - `M` - `number[][]` - A 2-dimensional array.
+
+## Tests
+Run the Jest tests with:
+
+```npm run test`
 
 
 ## Todo
