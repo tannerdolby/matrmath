@@ -35,22 +35,21 @@ function isSquare(M, is2D = true) {
     return square;
 }
 
-function diagonalDiff(matrix, is2D = true, debug = false) {
-    const length = matrix.length;
-    const halved = length % 3 === 0 ? length / 3 : length / 2;
+function diagonalDiff(M, is2D = true, debug = false) {
+    const length = M.length;
+    const square1D = Math.sqrt(length);
     let square = false;
 
     if (is2D) {
-        square = isSquare(matrix);
+        square = isSquare(M);
         if (!square) throw new Error("The 2D matrix must be square!");
     } else {
-        square = isSquare(matrix, false);
+        square = isSquare(M, false);
         if (!square) throw new Error("The 1D matrix must be square!");
-  
     }
 
     const lib = {
-        matrix_type: `${halved}x${halved}`,
+        matrix_type: is2D ? `${length}x${length}` : `${square1D}x${square1D}`,
         left: {
             list: [],
             sum: 0
@@ -63,12 +62,11 @@ function diagonalDiff(matrix, is2D = true, debug = false) {
     }
 
     if (!is2D) {
-        if (typeof matrix[0] === 'object') {
+        if (typeof M[0] === 'object') {
             throw new Error("Input array must be 1-dimensional");
         }
-
         is2D = false;
-        let newMatrix = listToMatrix(matrix, halved);
+        let newMatrix = listToMatrix(M, Math.sqrt());
         var len = newMatrix.length;
 
         for (var i = 0, j = 0, k = len - 1; i < len, j < len, k >= 0; i++, j++, k--) {
@@ -81,7 +79,7 @@ function diagonalDiff(matrix, is2D = true, debug = false) {
         lib.diagonal_diff = Math.abs(lib.left.sum - lib.right.sum);
 
     } else {
-        if (typeof matrix[0] !== 'object') {
+        if (typeof M[0] !== 'object') {
             throw new Error("Invalid matrix argument. Please provide an array data type.");
         }
         for (
@@ -89,8 +87,8 @@ function diagonalDiff(matrix, is2D = true, debug = false) {
             i < length, j < length, k >= 0;
             i++, j++, k--
         ) {
-            lib.left.list.push(matrix[i][j]);
-            lib.right.list.push(matrix[i][k]);
+            lib.left.list.push(M[i][j]);
+            lib.right.list.push(M[i][k]);
             lib.left.sum = lib.left.list.reduce((a,b) => a + b);
             lib.right.sum = lib.right.list.reduce((a, b) => a + b);
             lib.diagonal_diff = Math.abs(lib.left.sum - lib.right.sum);
@@ -160,15 +158,15 @@ function rowReduce(M, square = false) {
 }
 
 function det(M) {
+    if (typeof m !== 'object') {
+        throw new Error("Input must be a 2D array of [object Array] type!");
+    }
+    let det = 0;
+
     if (!isSquare(M)) {
         throw new Error("Matrix must be square!");
     }
-    const rows = M.length;
-    let det = 0;
-
-    if (rows == 2 && M[0].length == 2) {
-        det = (M[0][0]*M[1][1]) - (M[0][1]*M[1][0]);
-    }
+    
     /* Referenced from https://rosettacode.org/wiki/Determinant_and_permanent#JavaScript */
     function d(A) {
         return A.length === 1 ? (
